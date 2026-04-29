@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Orbit P1 — SEO & AI SEO design system
+   Dark, modern, conversion-focused. Purple glow accent.
+   All colors must be HSL.
+   ============================================================ */
+
+@layer base {
+  :root {
+    /* Dark navy + black, electric blue accent */
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 45% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 5%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Electric blue */
+    --primary: 210 100% 60%;
+    --primary-foreground: 222 47% 4%;
+    --primary-glow: 195 100% 65%;
+
+    --secondary: 222 35% 11%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 10%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 200 100% 60%;
+    --accent-foreground: 222 47% 4%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 14%;
+    --input: 217 33% 14%;
+    --ring: 210 100% 60%;
+
+    --radius: 0.875rem;
+
+    --surface-elevated: 222 40% 8%;
+    --surface-glass: 222 45% 7%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 55%) 0%, hsl(195 100% 60%) 100%);
+    --gradient-hero: radial-gradient(ellipse 60% 50% at 50% 50%, hsl(210 100% 50% / 0.35) 0%, transparent 70%);
+    --gradient-text: linear-gradient(180deg, hsl(210 40% 100%) 0%, hsl(210 30% 80%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(222 45% 8% / 0.85) 0%, hsl(222 47% 5% / 0.5) 100%);
+    --gradient-radial: radial-gradient(circle at center, hsl(210 100% 50% / 0.18) 0%, transparent 70%);
+
+    --shadow-glow: 0 0 60px -10px hsl(210 100% 55% / 0.55);
+    --shadow-soft: 0 8px 32px -8px hsl(222 80% 2% / 0.7);
+    --shadow-elevated: 0 20px 60px -20px hsl(210 100% 30% / 0.45);
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 222 45% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 210 100% 60%;
+    --sidebar-primary-foreground: 222 47% 4%;
+    --sidebar-accent: 222 35% 11%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 14%;
+    --sidebar-ring: 210 100% 60%;
+  }
+
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    --card: 222 45% 6%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 5%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 100% 60%;
+    --primary-foreground: 222 47% 4%;
+    --secondary: 222 35% 11%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 30% 10%;
+    --muted-foreground: 215 20% 70%;
+    --accent: 200 100% 60%;
+    --accent-foreground: 222 47% 4%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 14%;
+    --input: 217 33% 14%;
+    --ring: 210 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(12px);
+    @apply border border-border/60 rounded-2xl;
+  }
+
+  .hero-glow {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+
+  /* Subtle starfield background */
+  .starfield {
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, hsl(0 0% 100% / 0.6), transparent 50%),
+      radial-gradient(1px 1px at 75% 80%, hsl(0 0% 100% / 0.5), transparent 50%),
+      radial-gradient(1px 1px at 40% 70%, hsl(0 0% 100% / 0.4), transparent 50%),
+      radial-gradient(1px 1px at 90% 20%, hsl(0 0% 100% / 0.6), transparent 50%),
+      radial-gradient(1px 1px at 10% 90%, hsl(0 0% 100% / 0.5), transparent 50%),
+      radial-gradient(1.5px 1.5px at 60% 15%, hsl(0 0% 100% / 0.7), transparent 50%),
+      radial-gradient(1px 1px at 30% 50%, hsl(0 0% 100% / 0.4), transparent 50%),
+      radial-gradient(1px 1px at 85% 55%, hsl(0 0% 100% / 0.5), transparent 50%);
+    background-size: 600px 600px;
+    background-repeat: repeat;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.6) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.6) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, hsl(0 0% 0%) 30%, transparent 80%);
+  }
+
+  /* Animated aurora blobs background */
+  .aurora-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .aurora-bg::before,
+  .aurora-bg::after {
+    content: "";
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.55;
+    will-change: transform;
+  }
+  .aurora-bg::before {
+    top: -15%;
+    left: -10%;
+    background: radial-gradient(circle, hsl(210 100% 55% / 0.85), transparent 60%);
+    animation: blob 18s ease-in-out infinite;
+  }
+  .aurora-bg::after {
+    bottom: -20%;
+    right: -10%;
+    background: radial-gradient(circle, hsl(195 100% 60% / 0.7), transparent 60%);
+    animation: blob 22s ease-in-out infinite reverse;
+  }
+
+  /* Underline reveal link */
+  .story-link {
+    @apply relative inline-block;
+  }
+  .story-link::after {
+    content: "";
+    @apply absolute left-0 bottom-0 h-0.5 w-full origin-bottom-right scale-x-0 bg-primary transition-transform duration-300;
+  }
+  .story-link:hover::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+
+  /* Animated gradient text */
+  .text-gradient-animated {
+    background: linear-gradient(90deg, hsl(210 100% 70%), hsl(195 100% 65%), hsl(220 100% 75%), hsl(210 100% 70%));
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  /* ===== Hero animated background (moving grid + glows) ===== */
+  .hero-animated-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-grid-move {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(hsl(var(--primary) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridMove 20s linear infinite;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 80%);
+  }
+  @keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
+  }
+  .hero-glow-orb {
+    position: absolute;
+    width: 800px; height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsl(var(--primary) / 0.18) 0%, transparent 70%);
+    top: -200px; right: -200px;
+    animation: orb-pulse 6s ease-in-out infinite;
+  }
+  .hero-glow-orb.alt {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, hsl(280 90% 60% / 0.16) 0%, transparent 70%);
+    top: auto; right: auto;
+    bottom: -100px; left: -100px;
+    animation: orb-pulse 8s ease-in-out infinite reverse;
+  }
+  @keyframes orb-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.12); opacity: 0.7; }
+  }
+
+  /* ===== Custom cursor =====
+     Outer element is positioned by JS via transform (no transitions).
+     Inner ::before handles size/scale/color transitions for hover state. */
+  .cursor-dot, .cursor-ring {
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    width: 0; height: 0;
+  }
+  .cursor-dot { z-index: 9999; }
+  .cursor-ring { z-index: 9998; }
+  .cursor-dot::before,
+  .cursor-ring::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: transform 0.2s ease, width 0.25s, height 0.25s, border-color 0.3s, background 0.3s;
+  }
+  .cursor-dot::before {
+    width: 10px; height: 10px;
+    background: hsl(var(--primary));
+    box-shadow: 0 0 12px hsl(var(--primary) / 0.6);
+    mix-blend-mode: screen;
+  }
+  .cursor-ring::before {
+    width: 38px; height: 38px;
+    border: 1.5px solid hsl(var(--primary) / 0.5);
+  }
+  .cursor-dot.is-hover::before { transform: translate(-50%, -50%) scale(2.4); }
+  .cursor-ring.is-hover::before { transform: translate(-50%, -50%) scale(1.6); border-color: hsl(var(--primary)); }
+  @media (hover: none), (pointer: coarse) {
+    .cursor-dot, .cursor-ring { display: none; }
+  }
+
+  /* ===== Roadmap arrows / connector ===== */
+  .roadmap-line {
+    position: absolute;
+    top: 28px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: linear-gradient(90deg, hsl(var(--primary) / 0.6), hsl(var(--primary-glow) / 0.5), hsl(var(--primary) / 0.6));
+    z-index: 0;
+  }
+  .roadmap-step-dot {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: hsl(var(--background));
+    border: 2px solid hsl(var(--primary));
+    display: grid; place-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+    color: hsl(var(--primary));
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    transition: transform .3s, box-shadow .3s;
+  }
+  .roadmap-step-dot:hover { transform: scale(1.12); box-shadow: 0 0 28px hsl(var(--primary) / 0.4); }
+
+  /* ===== Counter / stat numbers ===== */
+  .stat-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+  }
+
+  /* ===== Marquee (logo ticker) helpers ===== */
+  .ticker-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-4 py-2 text-sm font-medium text-foreground/80 whitespace-nowrap;
+  }
+}
