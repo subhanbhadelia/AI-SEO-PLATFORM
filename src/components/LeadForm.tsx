@@ -37,9 +37,9 @@ export const LeadForm = ({ ctaLabel = "Get my free audit", compact = false }: Le
   });
 
   const onSubmit = async (data: FormValues) => {
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+    const serviceId = "service_q6ozamt";
+    const templateId = "template_s2l0g8e";
+    const publicKey = "zbUo9C6omj_DHRbt9";
 
     try {
       if (!serviceId || !templateId || !publicKey) {
@@ -55,7 +55,7 @@ export const LeadForm = ({ ctaLabel = "Get my free audit", compact = false }: Le
           reply_to: data.email,
           website: data.website || "—",
           message: data.message,
-          to_email: "hello@orbitp1.com",
+          to_email: "contact@orbitp1.com",
         },
         { publicKey },
       );
@@ -64,7 +64,7 @@ export const LeadForm = ({ ctaLabel = "Get my free audit", compact = false }: Le
       toast.success("Thanks! We'll be in touch within 24 hours.");
     } catch (err) {
       console.error("Lead form submission failed:", err);
-      toast.error("Couldn't send your message. Please email hello@orbitp1.com directly.");
+      toast.error("Couldn't send your message. Please email contact@orbitp1.com directly.");
     }
   };
 

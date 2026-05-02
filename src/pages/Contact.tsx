@@ -32,7 +32,7 @@ const Contact = () => (
     <section className="container py-12 grid lg:grid-cols-5 gap-8">
       <div className="lg:col-span-2 space-y-4">
         {[
-          { i: Mail, t: "Email", d: "subhan.bhadelia@gmail.com", href: "mailto:subhan.bhadelia@gmail.com" },
+          { i: Mail, t: "Email", d: "contact@orbitp1.com", href: "mailto:contact@orbitp1.com" },
           { i: MessageCircle, t: "WhatsApp", d: "+27 839729003", href: "https://wa.me/27839729003" },
           { i: Clock, t: "Response time", d: "Within 24 hours, every weekday" },
           { i: MapPin, t: "Working globally", d: "Remote team across 6 timezones" },
