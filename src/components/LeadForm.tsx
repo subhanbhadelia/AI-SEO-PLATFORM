@@ -37,9 +37,9 @@ export const LeadForm = ({ ctaLabel = "Get my free audit", compact = false }: Le
   });
 
   const onSubmit = async (data: FormValues) => {
-    const serviceId = "service_q6ozamt";
-    const templateId = "template_s2l0g8e";
-    const publicKey = "zbUo9C6omj_DHRbt9";
+    const serviceId = "service_9cbbgx8";
+    const templateId = "template_r56ss9e";
+    const publicKey = "PPLVxUQCsOJznaOg5";
 
     try {
       if (!serviceId || !templateId || !publicKey) {
