@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Twitter, Github } from "lucide-react";
+import { Linkedin, Instagram, Github } from "lucide-react";
 import logoOrbit from "@/assets/logo-orbit.png";
 
 export const Footer = () => {
@@ -19,10 +19,16 @@ export const Footer = () => {
               SEO and AI SEO agency turning search visibility into qualified leads, sales and measurable revenue growth.
             </p>
             <div className="flex gap-3 pt-2">
-              {[Linkedin, Twitter, Github].map((Icon, i) => (
+              {[
+                { Icon: Linkedin, url: "https://www.linkedin.com/company/orbit-p1/" },
+                { Icon: Instagram, url: "https://www.instagram.com/orbitp1/" },
+                { Icon: Github, url: "#" },
+              ].map(({ Icon, url }, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
                   aria-label="social"
                 >
@@ -48,7 +54,7 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/contact" className="hover:text-foreground">Free SEO audit</Link></li>
               <li><Link to="/contact" className="hover:text-foreground">Book a call</Link></li>
-              <li><a href="mailto:hello@orbitp1.com" className="hover:text-foreground">subhan.bhadelia@gmail.com</a></li>
+              <li><a href="mailto:subhan.bhadelia@gmail.com" className="hover:text-foreground">subhan.bhadelia@gmail.com</a></li>
             </ul>
           </div>
         </div>
