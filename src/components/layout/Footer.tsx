@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Instagram, Github } from "lucide-react";
+import { Linkedin, Instagram, Github, Facebook } from "lucide-react";
 import logoOrbit from "@/assets/logo-orbit.png";
 
 export const Footer = () => {
@@ -21,8 +21,8 @@ export const Footer = () => {
             <div className="flex gap-3 pt-2">
               {[
                 { Icon: Linkedin, url: "https://www.linkedin.com/company/orbit-p1/" },
-                { Icon: Instagram, url: "https://www.instagram.com/orbitp1/" },
-                { Icon: Github, url: "#" },
+                { Icon: Instagram, url: "https://www.instagram.com/orbit_p1/" },
+                { Icon: Facebook, url: "https://www.facebook.com/orbitp1agency/" },
               ].map(({ Icon, url }, i) => (
                 <a
                   key={i}
