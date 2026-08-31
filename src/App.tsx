@@ -8,6 +8,8 @@ import { SiteLayout } from "@/components/layout/SiteLayout";
 import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Services from "./pages/Services.tsx";
+import WebDevelopment from "./pages/WebDevelopment.tsx";
+import AIServices from "./pages/AIServices.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
 // import CaseStudies from "./pages/CaseStudies.tsx";
@@ -28,6 +30,8 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/web-development" element={<WebDevelopment />} />
+              <Route path="/ai-services" element={<AIServices />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               {/* <Route path="/case-studies" element={<CaseStudies />} /> */}
