@@ -20,7 +20,13 @@ export const Roadmap = ({ steps }: RoadmapProps) => (
     {/* connecting line, only on lg+ */}
     <div className="roadmap-line hidden lg:block" />
 
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-3 relative">
+    <div
+      className={
+        steps.length <= 3
+          ? "grid gap-6 sm:grid-cols-3 lg:gap-8 relative"
+          : "grid gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-3 relative"
+      }
+    >
       {steps.map((s, i) => (
         <Reveal key={s.n} delay={i * 90}>
           <div className="relative flex flex-col items-center text-center px-2 group cursor-grow">

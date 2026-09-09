@@ -3,10 +3,11 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { FinalCtaBanner } from "@/components/FinalCtaBanner";
 import { CAL_LINK } from "@/lib/cal";
-import { ArrowRight, ShoppingCart, Globe, Briefcase, Code, Zap, Smartphone, Sparkles, Layers, LineChart, CheckCircle2, Check, Compass, Target, Search, TrendingUp } from "lucide-react";
+import { ShoppingCart, Globe, Briefcase, Code, Zap, Smartphone, Sparkles, Layers, LineChart, CheckCircle2, Check, Compass, Target, Search, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
 import { HeroAnimatedBg } from "@/components/HeroAnimatedBg";
+import { PhraseTicker } from "@/components/PhraseTicker";
 
 const WebDevelopment = () => (
   <>
@@ -44,21 +45,21 @@ const WebDevelopment = () => (
         </div>
       </div>
 
-      {/* Ticker */}
-        <div className="mt-10">
-          <div className="overflow-hidden border-t border-b border-border py-4">
-            <div className="whitespace-nowrap animate-marquee text-sm text-muted-foreground">
-            <span className="mr-8">✦ Shopify ✦</span>
-            <span className="mr-8">WordPress ✦</span>
-            <span className="mr-8">Business Websites ✦</span>
-            <span className="mr-8">Custom Web Applications ✦</span>
-            <span className="mr-8">E-commerce ✦</span>
-            <span className="mr-8">Responsive Design ✦</span>
-            <span className="mr-8">Fast Performance ✦</span>
-            <span className="mr-8">Built to Convert</span>
-          </div>
-        </div>
-      </div>
+      <PhraseTicker
+        phrases={[
+          "Shopify",
+          "WordPress",
+          "Business Websites",
+          "Custom Web Applications",
+          "E-commerce",
+          "Responsive Design",
+          "Fast Performance",
+          "Built to Convert",
+        ]}
+        variant="subtle"
+        speed="slow"
+        className="mt-10"
+      />
     </header>
 
     {/* INTRO */}
@@ -253,72 +254,25 @@ const WebDevelopment = () => (
           eyebrow="PROCESS"
           title={<>From idea to <span className="text-gradient">live.</span></>}
         />
-
-        {/* Horizontal gradient timeline behind cards (visible on desktop) */}
-        <div className="pointer-events-none absolute inset-x-0 top-[50%] -translate-y-1/2 hidden lg:block">
-          <div className="w-full h-1 bg-gradient-to-r from-primary/20 via-primary-glow/40 to-primary/20 opacity-40 rounded-full" />
-        </div>
-
-        {/* Mobile / Tablet: stacked grid without arrows */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5 lg:hidden">
+        <ol className="mt-14 grid gap-10 md:grid-cols-3 lg:grid-cols-6 relative">
+          <div className="roadmap-line hidden lg:block" />
           {[
-            ["01","Discover","Your business. Your goals. Your audience."],
-            ["02","Plan","Structure, experience and functionality."],
-            ["03","Design","Clean, modern and on-brand."],
-            ["04","Develop","Fast, responsive and functional."],
-            ["05","Test","Cross-device and performance checks."],
-            ["06","Launch","Tested. Optimized. Live."],
-          ].map((s) => (
-            <article key={s[0]} className="glass-card rounded-[16px] border border-primary/20 p-6 flex flex-col">
-              <div className="flex flex-col items-center">
-                <div className="w-9 h-9 rounded-md flex items-center justify-center bg-gradient-to-br from-primary to-primary-glow text-primary-foreground font-extrabold">
-                  {s[0]}
-                </div>
-                <h3 className="mt-4 text-lg font-bold text-center">{s[1]}</h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-snug text-center">{s[2]}</p>
-              </div>
-            </article>
+            ["01", "Discover", "Your business. Your goals. Your audience."],
+            ["02", "Plan", "Structure, experience and functionality."],
+            ["03", "Design", "Clean, modern and on-brand."],
+            ["04", "Develop", "Fast, responsive and functional."],
+            ["05", "Test", "Cross-device and performance checks."],
+            ["06", "Launch", "Tested. Optimized. Live."],
+          ].map((step, i) => (
+            <Reveal key={step[0]} delay={i * 70}>
+              <li className="relative text-center">
+                <div className="roadmap-step-dot text-sm mx-auto">{step[0]}</div>
+                <h3 className="mt-5 font-display text-xl font-semibold">{step[1]}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{step[2]}</p>
+              </li>
+            </Reveal>
           ))}
-        </div>
-
-        {/* Desktop: single row with alternating card and arrow siblings so cards stretch equally */}
-        <div className="mt-8 hidden lg:flex lg:items-stretch lg:gap-4">
-          {(() => {
-            const steps = [
-              ["01","Discover","Your business. Your goals. Your audience."],
-              ["02","Plan","Structure, experience and functionality."],
-              ["03","Design","Clean, modern and on-brand."],
-              ["04","Develop","Fast, responsive and functional."],
-              ["05","Test","Cross-device and performance checks."],
-              ["06","Launch","Tested. Optimized. Live."],
-            ];
-            const nodes: JSX.Element[] = [];
-            steps.forEach((s, i) => {
-              nodes.push(
-                <article key={`card-${i}`} className="glass-card lg:flex-1 h-full rounded-[16px] border border-primary/20 p-6 hover:-translate-y-1 hover:shadow-glow transition-transform duration-300 flex flex-col">
-                  <div className="flex flex-col items-center">
-                    <div className="w-9 h-9 rounded-md flex items-center justify-center bg-gradient-to-br from-primary to-primary-glow text-primary-foreground font-extrabold">
-                      {s[0]}
-                    </div>
-                    <h3 className="mt-4 text-lg font-bold text-center">{s[1]}</h3>
-                    <p className="mt-3 text-sm text-muted-foreground leading-snug text-center">{s[2]}</p>
-                  </div>
-                </article>
-              );
-
-              if (i < steps.length - 1) {
-                nodes.push(
-                  <div key={`arrow-${i}`} className="flex items-center h-full px-2" aria-hidden>
-                    <div className="w-6 h-6 flex items-center justify-center text-primary/70">
-                      <ArrowRight className="h-5 w-5" />
-                    </div>
-                  </div>
-                );
-              }
-            });
-            return nodes;
-          })()}
-        </div>
+        </ol>
       </div>
     </section>
 

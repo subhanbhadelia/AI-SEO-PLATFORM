@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
@@ -7,8 +7,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
-import Services from "./pages/Services.tsx";
+import SEO from "./pages/SEO.tsx";
 import WebDevelopment from "./pages/WebDevelopment.tsx";
+import LeadGeneration from "./pages/LeadGeneration.tsx";
 import AIServices from "./pages/AIServices.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
@@ -29,8 +30,10 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
+              <Route path="/seo" element={<SEO />} />
+              <Route path="/services" element={<Navigate to="/seo" replace />} />
               <Route path="/web-development" element={<WebDevelopment />} />
+              <Route path="/lead-generation" element={<LeadGeneration />} />
               <Route path="/ai-services" element={<AIServices />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />

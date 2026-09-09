@@ -16,7 +16,7 @@ export const Footer = () => {
               />
             </Link>
             <p className="text-sm text-muted-foreground max-w-sm">
-              SEO and AI SEO agency turning search visibility into qualified leads, sales and measurable revenue growth.
+              Orbit P1 provides SEO, AI SEO, website development and lead generation services to help businesses increase visibility, generate qualified leads and grow online.
             </p>
             <div className="flex gap-3 pt-2">
               {[
@@ -41,9 +41,11 @@ export const Footer = () => {
           <div>
             <h4 className="text-sm font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link to="/" className="hover:text-foreground">Home</Link></li>
               <li><Link to="/about" className="hover:text-foreground">About</Link></li>
-              <li><Link to="/services" className="hover:text-foreground">Services</Link></li>
-              {/* <li><Link to="/case-studies" className="hover:text-foreground">Case Studies</Link></li> */}
+              <li><Link to="/services" className="hover:text-foreground">SEO & AI SEO</Link></li>
+              <li><Link to="/web-development" className="hover:text-foreground">Website Development</Link></li>
+              <li><Link to="/lead-generation" className="hover:text-foreground">Lead Generation</Link></li>
               <li><Link to="/blog" className="hover:text-foreground">Blog</Link></li>
               <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
             </ul>

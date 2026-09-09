@@ -3,10 +3,11 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { FinalCtaBanner } from "@/components/FinalCtaBanner";
 import { CAL_LINK } from "@/lib/cal";
-import { ArrowRight, MessageSquare, Settings, Puzzle, BarChart2, Zap, ShieldCheck, Lock, Brain, TrendingUp, Check } from "lucide-react";
+import { MessageSquare, Settings, Puzzle, BarChart2, Zap, ShieldCheck, Lock, Brain, TrendingUp, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
 import { HeroAnimatedBg } from "@/components/HeroAnimatedBg";
+import { PhraseTicker } from "@/components/PhraseTicker";
 
 const AIServices = () => (
   <>
@@ -42,20 +43,20 @@ const AIServices = () => (
         </div>
       </div>
 
-      {/* Ticker */}
-      <div className="mt-10">
-        <div className="overflow-hidden border-t border-b border-border py-4">
-          <div className="whitespace-nowrap animate-marquee text-sm text-muted-foreground">
-            <span className="mr-8">AI Chatbots ✦</span>
-            <span className="mr-8">Workflow Automation ✦</span>
-            <span className="mr-8">AI Integrations ✦</span>
-            <span className="mr-8">Data &amp; Analytics ✦</span>
-            <span className="mr-8">Custom AI Tools ✦</span>
-            <span className="mr-8">LLM Integration ✦</span>
-            <span className="mr-8">Built to Scale</span>
-          </div>
-        </div>
-      </div>
+      <PhraseTicker
+        phrases={[
+          "AI Chatbots",
+          "Workflow Automation",
+          "AI Integrations",
+          "Data & Analytics",
+          "Custom AI Tools",
+          "LLM Integration",
+          "Built to Scale",
+        ]}
+        variant="subtle"
+        speed="slow"
+        className="mt-10"
+      />
     </header>
 
     {/* INTRO */}
@@ -197,15 +198,12 @@ const AIServices = () => (
     <section className="py-16 border-t border-border">
       <div className="container text-center">
         <h2 className="font-display text-3xl md:text-5xl">Good automation saves time. <span className="text-gradient">Great AI creates advantage.</span></h2>
-        <div className="ticker-wrap mt-6">
-          <div className="flex animate-marquee gap-3 whitespace-nowrap">
-            <span className="ticker-pill">Strategy</span>
-            <span className="ticker-pill">Data</span>
-            <span className="ticker-pill">Automation</span>
-            <span className="ticker-pill">Intelligence</span>
-            <span className="ticker-pill">Performance</span>
-          </div>
-        </div>
+        <PhraseTicker
+          phrases={["Strategy", "Data", "Automation", "Intelligence", "Performance"]}
+          variant="oversized"
+          speed="normal"
+          className="mt-6"
+        />
       </div>
     </section>
 
@@ -244,73 +242,45 @@ const AIServices = () => (
     </section>
 
     {/* PROCESS */}
-    <section className="py-16">
+    <section className="relative overflow-hidden border-y border-border py-20 md:py-28">
+      <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
       <div className="container relative">
         <SectionHeading
           eyebrow="PROCESS"
-          title={<>From idea to <span className="text-gradient">live.</span></>}
+          title={<>From idea to <span className="text-gradient">intelligence.</span></>}
+          description="A practical path from your first workflow question to a reliable AI system your team can use every day."
         />
 
-        {/* Mobile / Tablet: stacked grid without arrows */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5 lg:hidden">
+        <ol className="relative mt-16 grid gap-5 md:grid-cols-2 md:gap-x-16 md:gap-y-8 lg:gap-x-24">
+          <div className="absolute bottom-8 left-1/2 top-8 hidden w-px -translate-x-1/2 bg-gradient-to-b from-primary/10 via-primary/70 to-primary/10 md:block" />
           {[
-            ["01","Discover","Your workflows, your data, your goals."],
-            ["02","Plan","Approach, tools and integration points."],
-            ["03","Build","Models, automations and interfaces."],
-            ["04","Train & Test","Accuracy, edge cases and safety checks."],
-            ["05","Integrate","Connected to your existing systems."],
-            ["06","Launch","Live, monitored and supported."],
-          ].map((s) => (
-            <article key={s[0]} className="glass-card rounded-[16px] border border-primary/20 p-6 flex flex-col">
-              <div className="flex flex-col items-center">
-                <div className="w-9 h-9 rounded-md flex items-center justify-center bg-gradient-to-br from-primary to-primary-glow text-primary-foreground font-extrabold">
-                  {s[0]}
-                </div>
-                <h3 className="mt-4 text-lg font-bold text-center">{s[1]}</h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-snug text-center">{s[2]}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {/* Desktop: single row with alternating card and arrow siblings so cards stretch equally */}
-        <div className="mt-8 hidden lg:flex lg:items-stretch lg:gap-4">
-          {(() => {
-            const steps = [
-              ["01","Discover","Your workflows, your data, your goals."],
-              ["02","Plan","Approach, tools and integration points."],
-              ["03","Build","Models, automations and interfaces."],
-              ["04","Train & Test","Accuracy, edge cases and safety checks."],
-              ["05","Integrate","Connected to your existing systems."],
-              ["06","Launch","Live, monitored and supported."],
-            ];
-            const nodes: JSX.Element[] = [];
-            steps.forEach((s, i) => {
-              nodes.push(
-                <article key={`card-${i}`} className="glass-card lg:flex-1 h-full rounded-[16px] border border-primary/20 p-6 hover:-translate-y-1 hover:shadow-glow transition-transform duration-300 flex flex-col">
-                  <div className="flex flex-col items-center">
-                    <div className="w-9 h-9 rounded-md flex items-center justify-center bg-gradient-to-br from-primary to-primary-glow text-primary-foreground font-extrabold">
-                      {s[0]}
+            ["01", "Discover", "Your workflows, your data, your goals."],
+            ["02", "Plan", "Approach, tools and integration points."],
+            ["03", "Build", "Models, automations and interfaces."],
+            ["04", "Train & Test", "Accuracy, edge cases and safety checks."],
+            ["05", "Integrate", "Connected to your existing systems."],
+            ["06", "Launch", "Live, monitored and supported."],
+          ].map((step, i) => (
+            <Reveal key={step[0]} delay={i * 70}>
+              <li className={`relative ${i % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}>
+                <article className="glass-card group relative h-full overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-glow md:p-7">
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-40 transition-opacity group-hover:opacity-100" />
+                  <div className="flex items-start gap-4">
+                    <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-primary/40 bg-primary/10 font-display text-sm font-bold text-primary shadow-[0_0_24px_hsl(var(--primary)/0.12)]">
+                      {step[0]}
                     </div>
-                    <h3 className="mt-4 text-lg font-bold text-center">{s[1]}</h3>
-                    <p className="mt-3 text-sm text-muted-foreground leading-snug text-center">{s[2]}</p>
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-primary/70">System phase</p>
+                      <h3 className="mt-1 font-display text-xl font-semibold">{step[1]}</h3>
+                    </div>
                   </div>
+                  <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">{step[2]}</p>
+                  <div className="mt-6 h-px w-1/3 bg-gradient-to-r from-primary/60 to-transparent transition-all duration-300 group-hover:w-2/3" />
                 </article>
-              );
-
-              if (i < steps.length - 1) {
-                nodes.push(
-                  <div key={`arrow-${i}`} className="flex items-center h-full px-2" aria-hidden>
-                    <div className="w-6 h-6 flex items-center justify-center text-primary/70">
-                      <ArrowRight className="h-5 w-5" />
-                    </div>
-                  </div>
-                );
-              }
-            });
-            return nodes;
-          })()}
-        </div>
+              </li>
+            </Reveal>
+          ))}
+        </ol>
       </div>
     </section>
 

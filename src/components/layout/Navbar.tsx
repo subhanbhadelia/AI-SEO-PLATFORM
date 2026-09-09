@@ -9,10 +9,10 @@ import logoOrbit from "@/assets/logo-orbit.png";
 const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
+  { to: "/seo", label: "SEO" },
+  { to: "/lead-generation", label: "Lead Generation" },
   { to: "/web-development", label: "Web Development" },
   { to: "/ai-services", label: "AI Services" },
-  // { to: "/case-studies", label: "Case Studies" },
   { to: "/blog", label: "Blog" },
   { to: "/contact", label: "Contact" },
 ];
@@ -32,7 +32,7 @@ export const Navbar = () => {
             />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1">
             {links.map((l) => (
               <NavLink
                 key={l.to}
@@ -50,14 +50,14 @@ export const Navbar = () => {
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Button asChild variant="hero" size="sm">
               <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">Book a call</a>
             </Button>
           </div>
 
           <button
-            className="md:hidden p-2 rounded-md text-foreground"
+            className="lg:hidden p-2 rounded-md text-foreground"
             onClick={() => setOpen((o) => !o)}
             aria-label="Toggle menu"
           >
@@ -66,7 +66,7 @@ export const Navbar = () => {
         </div>
 
         {open && (
-          <div className="md:hidden mt-2 rounded-2xl border border-border bg-background/95 backdrop-blur-xl p-4 animate-fade-in">
+          <div className="lg:hidden mt-2 rounded-2xl border border-border bg-background/95 backdrop-blur-xl p-4 animate-fade-in">
             <nav className="flex flex-col gap-1">
               {links.map((l) => (
                 <NavLink
