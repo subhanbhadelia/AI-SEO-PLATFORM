@@ -262,6 +262,48 @@
     50% { transform: scale(1.12); opacity: 0.7; }
   }
 
+  .hero-streak-field {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .hero-streak {
+    position: absolute;
+    width: 180px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary-glow) / 0.8), transparent);
+    filter: drop-shadow(0 0 8px hsl(var(--primary) / 0.55));
+    opacity: 0;
+    transform: rotate(35deg) translate3d(30vw, 0, 0);
+    will-change: transform, opacity;
+    animation: hero-streak-drift 9s linear infinite;
+  }
+  .hero-streak-one { top: 18%; left: 5%; animation-delay: -1s; }
+  .hero-streak-two { top: 42%; left: 18%; animation-delay: -6s; }
+  .hero-streak-three { top: 68%; left: 31%; animation-delay: -3s; }
+  .hero-streak-four { top: 28%; left: 43%; animation-delay: -8s; }
+  .hero-streak-five { top: 76%; left: 55%; animation-delay: -4s; }
+  .hero-streak-six { top: 50%; left: 67%; animation-delay: -7s; }
+  .hero-streak-seven { top: 14%; left: 78%; animation-delay: -2s; }
+  .hero-streak-eight { top: 62%; left: 90%; animation-delay: -5s; }
+  @keyframes hero-streak-drift {
+    0% { opacity: 0; transform: rotate(35deg) translate3d(30vw, 0, 0); }
+    12%, 68% { opacity: 0.7; }
+    100% { opacity: 0; transform: rotate(35deg) translate3d(-30vw, 0, 0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-streak-field {
+      display: none;
+    }
+    .animate-marquee,
+    .animate-marquee-slow {
+      animation-play-state: paused;
+    }
+  }
+
   /* ===== Custom cursor =====
      Outer element is positioned by JS via transform (no transitions).
      Inner ::before handles size/scale/color transitions for hover state. */

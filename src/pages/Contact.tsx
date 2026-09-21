@@ -29,6 +29,34 @@ const Contact = () => (
       </div>
     </section>
 
+    <section className="border-y border-border bg-secondary/20 py-16 md:py-20">
+      <div className="container">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-semibold text-primary">Why Orbit P1</p>
+          <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-gradient">
+            A connected growth system for modern search
+          </h2>
+          <p className="mx-auto mt-5 text-base md:text-lg leading-relaxed text-muted-foreground">
+            Orbit P1 combines traditional SEO, AI search optimization, conversion strategy, and practical automation to help businesses get found, earn trust, and turn visibility into qualified leads and measurable growth.
+          </p>
+        </div>
+
+        <div className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            ["Search visibility", "Be discovered across Google and emerging AI platforms."],
+            ["Conversion strategy", "Turn attention and traffic into real opportunities."],
+            ["Connected systems", "Align your website, search, and lead generation."],
+            ["Measurable growth", "Focus on qualified leads, revenue, and progress."],
+          ].map(([title, description]) => (
+            <div key={title} className="rounded-2xl border border-border bg-card/50 p-5">
+              <h3 className="font-semibold">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <section className="container py-12 grid lg:grid-cols-5 gap-8">
       <div className="lg:col-span-2 space-y-4">
         {[

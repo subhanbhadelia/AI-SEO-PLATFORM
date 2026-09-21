@@ -175,9 +175,19 @@ export const ShaderBackground = () => {
     <div
       ref={containerRef}
       aria-hidden
-      className="absolute inset-0 -z-10 overflow-hidden bg-background"
+      className="absolute inset-0 z-0 overflow-hidden bg-background"
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+      <div className="hero-streak-field" aria-hidden="true">
+        <span className="hero-streak hero-streak-one" />
+        <span className="hero-streak hero-streak-two" />
+        <span className="hero-streak hero-streak-three" />
+        <span className="hero-streak hero-streak-four" />
+        <span className="hero-streak hero-streak-five" />
+        <span className="hero-streak hero-streak-six" />
+        <span className="hero-streak hero-streak-seven" />
+        <span className="hero-streak hero-streak-eight" />
+      </div>
     </div>
   );
 };

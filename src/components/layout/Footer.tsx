@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Instagram, Github, Facebook } from "lucide-react";
-import logoOrbit from "@/assets/logo-orbit.png";
+import logoOrbit from "@/assets/logo-orbitp1.png";
 
 export const Footer = () => {
   return (
@@ -42,7 +42,7 @@ export const Footer = () => {
             <h4 className="text-sm font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/" className="hover:text-foreground">Home</Link></li>
-              <li><Link to="/about" className="hover:text-foreground">About</Link></li>
+              {/* <li><Link to="/about" className="hover:text-foreground">About</Link></li> */}
               <li><Link to="/services" className="hover:text-foreground">SEO & AI SEO</Link></li>
               <li><Link to="/web-development" className="hover:text-foreground">Website Development</Link></li>
               <li><Link to="/lead-generation" className="hover:text-foreground">Lead Generation</Link></li>
@@ -54,7 +54,7 @@ export const Footer = () => {
           <div>
             <h4 className="text-sm font-semibold mb-4">Get started</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/contact" className="hover:text-foreground">Free SEO audit</Link></li>
+              {/* <li><Link to="/contact" className="hover:text-foreground">Free SEO audit</Link></li> */}  
               <li><Link to="/contact" className="hover:text-foreground">Book a call</Link></li>
               <li><a href="mailto:contact@orbitp1.com" className="hover:text-foreground">contact@orbitp1.com</a></li>
             </ul>

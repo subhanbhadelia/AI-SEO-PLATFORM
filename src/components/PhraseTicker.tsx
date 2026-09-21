@@ -21,8 +21,6 @@ export const PhraseTicker = ({
   speed = "slow",
   className,
 }: PhraseTickerProps) => {
-  const loop = [...phrases, ...phrases];
-
   return (
     <div
       className={cn(
@@ -34,29 +32,33 @@ export const PhraseTicker = ({
       )}
       aria-hidden
     >
-      <div className={cn("flex w-max whitespace-nowrap", speeds[speed])}>
-        {loop.map((phrase, i) => (
-          <span
-            key={`${phrase}-${i}`}
-            className={cn(
-              "inline-flex items-center",
-              variant === "subtle" && "text-[15px] text-muted-foreground",
-              variant === "contrast" && "text-sm md:text-base font-medium tracking-wide text-primary-foreground",
-              variant === "oversized" && "font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground/80",
-            )}
-          >
-            <span className="px-4 md:px-6">{phrase}</span>
-            <span
+      <div className={cn("flex w-max", speeds[speed])}>
+        {[0, 1, 2].map((copy) => (
+          <div key={copy} className="flex shrink-0 whitespace-nowrap">
+            {phrases.map((phrase, i) => (
+              <span
+                key={`${copy}-${phrase}-${i}`}
               className={cn(
-                "select-none",
-                variant === "subtle" && "text-primary/60",
-                variant === "contrast" && "text-primary-foreground/50",
-                variant === "oversized" && "text-primary px-2 md:px-4",
+                  "inline-flex items-center",
+                  variant === "subtle" && "text-[15px] text-muted-foreground",
+                  variant === "contrast" && "text-sm md:text-base font-medium tracking-wide text-primary-foreground",
+                  variant === "oversized" && "font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground/80",
               )}
             >
-              {variant === "oversized" ? "•" : "•"}
-            </span>
-          </span>
+                <span className="px-4 md:px-6">{phrase}</span>
+                <span
+                  className={cn(
+                    "select-none",
+                    variant === "subtle" && "text-primary/60",
+                    variant === "contrast" && "text-primary-foreground/50",
+                    variant === "oversized" && "text-primary px-2 md:px-4",
+                  )}
+                >
+                  •
+                </span>
+              </span>
+            ))}
+          </div>
         ))}
       </div>
     </div>

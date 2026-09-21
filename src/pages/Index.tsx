@@ -99,16 +99,10 @@ const Index = () => {
 
       <section className="relative overflow-hidden isolate pt-8 pb-20 md:pt-16 md:pb-24">
         <HeroAnimatedBg />
-        <div className="orbit-field pointer-events-none absolute inset-0" aria-hidden>
-          <div className="absolute -top-[220px] -right-[180px] h-[640px] w-[640px] rounded-full border border-white/[0.07]" />
-          <div className="absolute -top-[100px] -right-[60px] h-[420px] w-[420px] rounded-full border border-white/[0.07]" />
-          <div className="absolute top-[130px] right-[210px] h-1.5 w-1.5 rounded-full bg-gradient-primary shadow-[0_0_16px_2px_hsl(var(--primary)/0.6)]" />
-          <div className="absolute -top-10 right-[420px] h-1 w-1 rounded-full bg-gradient-primary" />
-        </div>
 
         <div className="container relative z-10">
-          <div className="max-w-[760px]">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3.5 py-1.5 text-[13.5px] text-muted-foreground animate-fade-in">
+          <div className="mx-auto max-w-[760px] text-center">
+            <span className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3.5 py-1.5 text-[13.5px] text-muted-foreground animate-fade-in">
               <span className="h-1.5 w-1.5 rounded-full bg-gradient-primary" />
               Digital growth, engineered
             </span>
@@ -117,11 +111,11 @@ const Index = () => {
               Digital growth systems built to get you found, generate leads and grow
             </h1>
 
-            <p className="mt-6 max-w-[560px] text-[19px] leading-relaxed text-muted-foreground animate-fade-in">
+            <p className="mt-6 max-w-[560px] mx-auto text-[19px] leading-relaxed text-muted-foreground animate-fade-in">
               SEO, AI SEO, high-converting websites and lead generation systems designed to help businesses turn visibility into measurable growth.
             </p>
 
-            <div className="mt-9 animate-fade-in">
+            <div className="mt-9 flex justify-center animate-fade-in">
               <Button asChild variant="hero" size="xl">
                 <a href={CAL_LINK} target="_blank" rel="noopener noreferrer">
                   Book A Call

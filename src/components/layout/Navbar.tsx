@@ -4,15 +4,15 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { CAL_LINK } from "@/lib/cal";
-import logoOrbit from "@/assets/logo-orbit.png";
+import logoOrbit from "@/assets/logo-orbitp1.png";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
+  // { to: "/about", label: "About" },
   { to: "/seo", label: "SEO" },
   { to: "/lead-generation", label: "Lead Generation" },
   { to: "/web-development", label: "Web Development" },
-  { to: "/ai-services", label: "AI Services" },
+  // { to: "/ai-services", label: "AI Services" },
   { to: "/blog", label: "Blog" },
   { to: "/contact", label: "Contact" },
 ];

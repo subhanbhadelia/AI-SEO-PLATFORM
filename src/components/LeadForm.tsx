@@ -24,7 +24,7 @@ interface LeadFormProps {
   compact?: boolean;
 }
 
-export const LeadForm = ({ ctaLabel = "Get my free audit", compact = false }: LeadFormProps) => {
+export const LeadForm = ({ ctaLabel = "Get Your Growth Plan", compact = false }: LeadFormProps) => {
   const [done, setDone] = useState(false);
 
   const {
