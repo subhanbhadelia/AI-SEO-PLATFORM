@@ -61,9 +61,9 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+       <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+          <p>South Africa • United Arab Emirates</p>
           <p>© {new Date().getFullYear()} Orbit P1. All rights reserved.</p>
-          <p>Crafted for growth.</p>
         </div>
       </div>
     </footer>
